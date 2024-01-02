@@ -1,4 +1,5 @@
 let displayNumber = '0';
+const DISPLAYLIMIT = 10;
 let firstNumber;
 let secondNumber;
 let operator;
@@ -28,10 +29,12 @@ displayCalc.textContent = displayNumber;
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
-    displayNumber === '0' ?
-      displayNumber = clickedButton :
-      displayNumber += clickedButton;
-    displayCalc.textContent = displayNumber;
+    if (displayNumber.length < DISPLAYLIMIT) {
+      displayNumber === '0' ?
+        displayNumber = clickedButton :
+        displayNumber += clickedButton;
+      displayCalc.textContent = displayNumber;
+    }
   })
 })
 
