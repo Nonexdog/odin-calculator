@@ -1,3 +1,43 @@
 @use '_variables.scss' as var;
+@mixin centerflex {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
+h1 {
+  text-align: center;
+}
 
+.calculator {
+  * {
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  @include centerflex();
+  height: 30rem;
+  padding: 1rem;
+  margin: auto;
+  flex-direction: column;
+  width: 22rem;
+  border-radius: 2rem;
+  gap: 1rem;
+  .display {
+    @include centerflex();
+    font-size: 3.4em;
+    padding: .4rem;
+    flex: 1;
+    direction: rtl;
+  }
+  .buttons {
+    gap: .1em;
+    flex: 7;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+
+    button {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  }
+}
