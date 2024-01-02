@@ -1,3 +1,4 @@
+let displayNumber = '0';
 let firstNumber;
 let secondNumber;
 let operator;
@@ -22,11 +23,15 @@ function operate(calcFunction, num1, num2) {
 const buttonsCalc = document.querySelectorAll('.calculator button');
 
 const displayCalc = document.querySelector('.display');
+displayCalc.textContent = displayNumber;
 
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
-    firstNumber = button.textContent;
-    displayCalc.textContent += firstNumber;
+    let clickedButton = button.textContent;
+    displayNumber === '0' ?
+      displayNumber = clickedButton :
+      displayNumber += clickedButton;
+    displayCalc.textContent = displayNumber;
   })
 })
 
