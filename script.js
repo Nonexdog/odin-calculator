@@ -1,7 +1,6 @@
 let displayValue = '0';
 const DISPLAYLIMIT = 10;
 let firstNumber;
-let secondNumber;
 let operator;
 let result;
 
@@ -39,7 +38,6 @@ buttonsCalc.forEach(button => {
     let clickedButton = button.textContent;
     processClicked(clickedButton);
     console.log('firstNumber: ' + firstNumber);
-    console.log('secondNumber: ' + secondNumber);
     console.log('operator: ' + operator);
   })
 })
