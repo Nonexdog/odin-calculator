@@ -1,6 +1,6 @@
 let displayValue = '0';
 const DISPLAYLIMIT = 10;
-let firstNumber;
+let stashedNumber;
 let operator;
 let result;
 
@@ -37,7 +37,7 @@ buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
     processClicked(clickedButton);
-    console.log('firstNumber: ' + firstNumber);
+    console.log('stashedNumber: ' + stashedNumber);
     console.log('operator: ' + operator);
   })
 })
@@ -46,7 +46,7 @@ function processClicked(value) {
   if (value === 'AC') {
 
     displayValue = '0';
-    firstNumber = 0;
+    stashedNumber = 0;
     secondNumber = 0;
     operator = null;
     displayCalc.textContent = displayValue;
@@ -61,13 +61,13 @@ function processClicked(value) {
     }
 
   } else if (value === '+' || value === '-' || value === '/' || value === '*') {
-    firstNumber = +displayValue;
+    stashedNumber = +displayValue;
     displayValue = '0';
     operator = value;
     
   } else if (value === '=') {
-    displayValue = operate(FUNCTION_LIB[operator], +firstNumber, +displayValue);
-    firstNumber = 0;
+    displayValue = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
+    stashedNumber = 0;
     displayCalc.textContent = displayValue;
   }
 }
