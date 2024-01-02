@@ -38,7 +38,13 @@ buttonsCalc.forEach(button => {
   })
 })
 
-
+function processClicked(string) {
+  if (+string) {
+    return 'Number'
+  } else {
+    return 'Not number'
+  }
+}
 
 // To assign the clicked buttons to the correct variables, the following should happen: 
   // The first buttons will be assigned to the firstNumber variable, always, while it is still a number
