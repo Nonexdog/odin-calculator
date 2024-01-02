@@ -26,7 +26,7 @@ const displayCalc = document.querySelector('.display');
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     firstNumber = button.textContent;
-    displayCalc.textContent = firstNumber;
+    displayCalc.textContent += firstNumber;
   })
 })
 
