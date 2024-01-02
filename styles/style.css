@@ -33,7 +33,7 @@ h1 {
 .calculator .display {
   font-size: 3.4em;
   padding: 0.4rem;
-  flex: 1;
+  flex: 1.2;
   text-align: right;
 }
 .calculator .buttons {
