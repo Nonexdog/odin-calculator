@@ -3,6 +3,7 @@ const DISPLAYLIMIT = 10;
 let firstNumber;
 let secondNumber;
 let operator;
+let result;
 
 function add(a, b) {
   return a + b;
@@ -17,6 +18,13 @@ function divide(a, b) {
   return a / b;
 }
 
+const FUNCTION_LIB = {
+  '+': add,
+  '-': subtract,
+  '*': multiply,
+  '/': divide,
+};
+
 function operate(calcFunction, num1, num2) {
   return calcFunction(num1, num2);
 }
@@ -29,20 +37,40 @@ displayCalc.textContent = displayValue;
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
-    if (displayValue.length < DISPLAYLIMIT) {
-      displayValue === '0' ?
-        displayValue = clickedButton :
-        displayValue += clickedButton;
-      displayCalc.textContent = displayValue;
-    }
+    processClicked(clickedButton);
+    console.log('firstNumber: ' + firstNumber);
+    console.log('secondNumber: ' + secondNumber);
+    console.log('operator: ' + operator);
   })
 })
 
-function processClicked(string) {
-  if (+string) {
+function processClicked(value) {
+  if (value === 'AC') {
+
+    displayValue = '0';
+    firstNumber = 0;
+    secondNumber = 0;
+    operator = null;
+    displayCalc.textContent = displayValue;
+
+  } else if (+value) {
+
+    if (displayValue.length < DISPLAYLIMIT) {
+      displayValue === '0' ?
+        displayValue = value :
+        displayValue += value;
+      displayCalc.textContent = displayValue;
+    }
+
+  } else if (value === '+' || value === '-' || value === '/' || value === '*') {
+    firstNumber = +displayValue;
+    displayValue = '0';
+    operator = value;
     
-  } else {
-    return 'Not number'
+  } else if (value === '=') {
+    displayValue = operate(FUNCTION_LIB[operator], +firstNumber, +displayValue);
+    firstNumber = 0;
+    displayCalc.textContent = displayValue;
   }
 }
 
