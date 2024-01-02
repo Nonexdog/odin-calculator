@@ -21,9 +21,12 @@ function operate(calcFunction, num1, num2) {
 
 const buttonsCalc = document.querySelectorAll('.calculator button');
 
+const displayCalc = document.querySelector('.display');
+
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
-    console.log(button.textContent);
+    firstNumber = button.textContent;
+    displayCalc.textContent = firstNumber;
   })
 })
 
