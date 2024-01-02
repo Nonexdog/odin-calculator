@@ -30,3 +30,11 @@ buttonsCalc.forEach(button => {
   })
 })
 
+
+
+// To assign the clicked buttons to the correct variables, the following should happen: 
+  // The first buttons will be assigned to the firstNumber variable, always, while it is still a number
+  // Then, if a button is an operator, that will be assigned to the operator variable. Keeps on going while it is still operator. 
+  // If the next button is a number, assign to the secondNumber variable. Then: 
+    // If at any point the AC button is pressed, clear everything. Highest priority. 
+    // If the = button or another arithmetic button is pressed, then return the computed value. In the latter case, assume that this is the new operator variable. 
