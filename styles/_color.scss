@@ -1,1 +1,8 @@
 @use '_variables.scss' as var;
+
+.calculator {
+  background-color: var.$calc-color-bg;
+  .display {
+    background-color: var.$calc-color-display;
+  }
+}
