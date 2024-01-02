@@ -1,4 +1,4 @@
-let displayNumber = '0';
+let displayValue = '0';
 const DISPLAYLIMIT = 10;
 let firstNumber;
 let secondNumber;
@@ -24,23 +24,23 @@ function operate(calcFunction, num1, num2) {
 const buttonsCalc = document.querySelectorAll('.calculator button');
 
 const displayCalc = document.querySelector('.display');
-displayCalc.textContent = displayNumber;
+displayCalc.textContent = displayValue;
 
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
-    if (displayNumber.length < DISPLAYLIMIT) {
-      displayNumber === '0' ?
-        displayNumber = clickedButton :
-        displayNumber += clickedButton;
-      displayCalc.textContent = displayNumber;
+    if (displayValue.length < DISPLAYLIMIT) {
+      displayValue === '0' ?
+        displayValue = clickedButton :
+        displayValue += clickedButton;
+      displayCalc.textContent = displayValue;
     }
   })
 })
 
 function processClicked(string) {
   if (+string) {
-    return 'Number'
+    
   } else {
     return 'Not number'
   }
