@@ -18,3 +18,12 @@ function divide(a, b) {
 function operate(calcFunction, num1, num2) {
   return calcFunction(num1, num2);
 }
+
+const buttonsCalc = document.querySelectorAll('.calculator button');
+
+buttonsCalc.forEach(button => {
+  button.addEventListener('click', () => {
+    console.log(button.textContent);
+  })
+})
+
