@@ -72,14 +72,17 @@ function processClicked(value) {
     displayValue = '0';
     operator = value;
 
-  
   } else if (value === '=') {
     setResult();
   }
 }
 
 function setResult() {
-  if (operator === '/' && displayValue === '0') { 
+  if (operator === '/' && displayValue === '0') {
+    stashedNumber = '0';
+    displayValue = '0';
+    result = '0';
+    operator = '+';
     displayCalc.textContent = 'UM... NUH UH'
   } else {
     result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
