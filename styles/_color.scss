@@ -5,4 +5,17 @@
   .display {
     background-color: var.$calc-color-display;
   }
+  button {
+    background-color: var.$calc-color-button;
+  }
+  .half-button,
+  .button-special {
+    background-color: var.$calc-color-operators;
+    color: var.$calc-color-button
+  }
+
+  .button-highlight {
+    background-color: var.$calc-color-darker;
+    color: var.$calc-color-button;
+  }
 }
