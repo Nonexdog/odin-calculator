@@ -10,6 +10,10 @@ img {
   width: 100%;
 }
 
+button {
+  border-style: none;
+}
+
 h1 {
   text-align: center;
 }
@@ -37,13 +41,14 @@ h1 {
   text-align: right;
 }
 .calculator .buttons {
-  gap: 0.1em;
+  gap: 0.25em;
   flex: 7;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(8, 1fr);
 }
 .calculator .buttons button {
+  border-radius: 0.3em;
   font-family: "Courier New", Courier, monospace;
   grid-row: span 2;
 }
@@ -59,4 +64,16 @@ h1 {
 }
 .calculator .display {
   background-color: #79945f;
+}
+.calculator button {
+  background-color: #ece2f5;
+}
+.calculator .half-button,
+.calculator .button-special {
+  background-color: #be5555;
+  color: #ece2f5;
+}
+.calculator .button-highlight {
+  background-color: #1c152c;
+  color: #ece2f5;
 }/*# sourceMappingURL=style.css.map */
