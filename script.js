@@ -2,7 +2,7 @@ let displayValue = '0';
 const DISPLAYLIMIT = 10;
 let stashedNumber = '0';
 let operator = '+';
-let result;
+let result = '0';
 
 function add(a, b) {
   return a + b;
@@ -70,7 +70,9 @@ function processClicked(value) {
     stashedNumber = +displayValue;
     displayValue = '0';
     operator = value;
+
     
+
   } else if (value === '=') {
     if (operator === '/' && displayValue === '0') { 
       displayCalc.textContent = 'UM... NUH UH'
