@@ -7,15 +7,22 @@
   }
   button {
     background-color: var.$calc-color-button;
+    border-bottom: 5px solid var.$calc-color-button-press;
+    &:active {
+      border-bottom: none;
+      margin-top: 5px;
+    }
   }
   .half-button,
   .button-special {
     background-color: var.$calc-color-operators;
-    color: var.$calc-color-button
+    color: var.$calc-color-button;
+    border-bottom: 5px solid var.$calc-color-operators-press;
   }
 
   .button-highlight {
     background-color: var.$calc-color-darker;
     color: var.$calc-color-button;
+    border-bottom: 5px solid var.$calc-color-darker-press;
   }
 }
