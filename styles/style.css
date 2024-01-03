@@ -60,20 +60,27 @@ h1 {
 }
 
 .calculator {
-  background-color: #472b4b;
+  background-color: #302931;
 }
 .calculator .display {
   background-color: #79945f;
 }
 .calculator button {
-  background-color: #ece2f5;
+  background-color: hsl(272, 49%, 92%);
+  border-bottom: 5px solid #9b87a3;
+}
+.calculator button:active {
+  border-bottom: none;
+  margin-top: 5px;
 }
 .calculator .half-button,
 .calculator .button-special {
   background-color: #be5555;
-  color: #ece2f5;
+  color: hsl(272, 49%, 92%);
+  border-bottom: 5px solid #6d294b;
 }
 .calculator .button-highlight {
   background-color: #1c152c;
-  color: #ece2f5;
+  color: hsl(272, 49%, 92%);
+  border-bottom: 5px solid #08090f;
 }/*# sourceMappingURL=style.css.map */
