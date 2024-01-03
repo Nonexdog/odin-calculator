@@ -39,6 +39,7 @@ buttonsCalc.forEach(button => {
     processClicked(clickedButton);
     console.log('stashedNumber: ' + stashedNumber);
     console.log('operator: ' + operator);
+    console.log('displayValue: ' + displayValue)
   })
 })
 
@@ -48,7 +49,7 @@ function processClicked(value) {
     displayValue = '0';
     stashedNumber = 0;
     secondNumber = 0;
-    operator = null;
+    operator = '+';
     displayCalc.textContent = displayValue;
 
   } else if (+value) {
@@ -72,7 +73,6 @@ function processClicked(value) {
     operator = value;
     
   } else if (value === '=') {
-    
     displayValue = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
     stashedNumber = 0;
     displayCalc.textContent = displayValue;
