@@ -29,13 +29,14 @@ h1 {
     text-align: right;
   }
   .buttons {
-    gap: .1em;
+    gap: .25em;
     flex: 7;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(8,1fr);
 
     button {
+      border-radius: .3em;
       font-family: 'Courier New', Courier, monospace;
       grid-row: span 2;
     }
