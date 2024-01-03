@@ -39,7 +39,8 @@ buttonsCalc.forEach(button => {
     processClicked(clickedButton);
     console.log('stashedNumber: ' + stashedNumber);
     console.log('operator: ' + operator);
-    console.log('displayValue: ' + displayValue)
+    console.log('displayValue: ' + displayValue);
+    console.log('result: ' + result);
   })
 })
 
@@ -73,15 +74,18 @@ function processClicked(value) {
 
   
   } else if (value === '=') {
-    if (operator === '/' && displayValue === '0') { 
-      displayCalc.textContent = 'UM... NUH UH'
-    } else {
-      result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
-      stashedNumber = '0';
-      displayValue = '0';
-      displayCalc.textContent = result;
-    }
+    setResult();
   }
 }
 
+function setResult() {
+  if (operator === '/' && displayValue === '0') { 
+    displayCalc.textContent = 'UM... NUH UH'
+  } else {
+    result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
+    stashedNumber = '0';
+    displayValue = '0';
+    displayCalc.textContent = result;
+  }
+}
 
