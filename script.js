@@ -65,7 +65,7 @@ function processClicked(value) {
     displayValue += '.';
     displayCalc.textContent = displayValue;
     
-  } else if (value === '+' || value === '-' || value === '/' || value === '*') {
+  } else if (value in FUNCTION_LIB) {
 
     stashedNumber = +displayValue;
     displayValue = '0';
