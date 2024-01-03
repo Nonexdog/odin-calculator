@@ -52,14 +52,12 @@ function processClicked(value) {
     operator = '+';
     displayCalc.textContent = displayValue;
 
-  } else if (+value) {
+  } else if (+value && displayValue.length < DISPLAYLIMIT) {
 
-    if (displayValue.length < DISPLAYLIMIT) {
-      displayValue === '0' ?
-        displayValue = value :
-        displayValue += value;
-      displayCalc.textContent = displayValue;
-    }
+    displayValue === '0' ?
+      displayValue = value :
+      displayValue += value;
+    displayCalc.textContent = displayValue;
 
   } else if (value === '.' && !displayValue.includes('.')) {
 
