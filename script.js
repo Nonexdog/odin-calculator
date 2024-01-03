@@ -1,6 +1,6 @@
 let displayValue = '0';
 const DISPLAYLIMIT = 10;
-let stashedNumber;
+let stashedNumber = '0';
 let operator = '+';
 let result;
 
@@ -59,9 +59,12 @@ function processClicked(value) {
         displayValue += value;
       displayCalc.textContent = displayValue;
     }
+
   } else if (value === '.' && !displayValue.includes('.')) {
+
     displayValue += '.';
     displayCalc.textContent = displayValue;
+    
   } else if (value === '+' || value === '-' || value === '/' || value === '*') {
 
     stashedNumber = +displayValue;
@@ -69,6 +72,7 @@ function processClicked(value) {
     operator = value;
     
   } else if (value === '=') {
+    
     displayValue = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
     stashedNumber = 0;
     displayCalc.textContent = displayValue;
