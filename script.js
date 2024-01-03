@@ -48,7 +48,6 @@ function processClicked(value) {
 
     displayValue = '0';
     stashedNumber = 0;
-    secondNumber = 0;
     operator = '+';
     displayCalc.textContent = displayValue;
 
@@ -73,9 +72,14 @@ function processClicked(value) {
     operator = value;
     
   } else if (value === '=') {
-    displayValue = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
-    stashedNumber = 0;
-    displayCalc.textContent = displayValue;
+    if (operator === '/' && displayValue === '0') { 
+      displayCalc.textContent = 'UM... NUH UH'
+    } else {
+      result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
+      stashedNumber = '0';
+      displayValue = '0';
+      displayCalc.textContent = result;
+    }
   }
 }
 
