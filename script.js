@@ -1,7 +1,7 @@
 let displayValue = '0';
 const DISPLAYLIMIT = 10;
 let stashedNumber;
-let operator;
+let operator = '+';
 let result;
 
 function add(a, b) {
@@ -59,8 +59,11 @@ function processClicked(value) {
         displayValue += value;
       displayCalc.textContent = displayValue;
     }
-
+  } else if (value === '.' && !displayValue.includes('.')) {
+    displayValue += '.';
+    displayCalc.textContent = displayValue;
   } else if (value === '+' || value === '-' || value === '/' || value === '*') {
+
     stashedNumber = +displayValue;
     displayValue = '0';
     operator = value;
@@ -71,6 +74,7 @@ function processClicked(value) {
     displayCalc.textContent = displayValue;
   }
 }
+
 
 // To assign the clicked buttons to the correct variables, the following should happen: 
   // The first buttons will be assigned to the firstNumber variable, always, while it is still a number
