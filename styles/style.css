@@ -41,10 +41,17 @@ h1 {
   flex: 7;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 }
 .calculator .buttons button {
   font-family: "Courier New", Courier, monospace;
+  grid-row: span 2;
+}
+.calculator .buttons .half-button {
+  grid-row: span 1;
+}
+.calculator .buttons .double-button {
+  grid-row: span 4;
 }
 
 .calculator {

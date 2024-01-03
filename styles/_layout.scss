@@ -33,10 +33,18 @@ h1 {
     flex: 7;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: repeat(8,1fr);
 
     button {
       font-family: 'Courier New', Courier, monospace;
+      grid-row: span 2;
+    }
+
+    .half-button {
+      grid-row: span 1;
+    }
+    .double-button {
+      grid-row: span 4;
     }
   }
 }
