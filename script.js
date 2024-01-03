@@ -14,7 +14,7 @@ function multiply(a, b) {
   return b ? a * b : a;
 }
 function divide(a, b) {
-  return a / b;
+  return b ? a / b : a;
 }
 
 const FUNCTION_LIB = {
