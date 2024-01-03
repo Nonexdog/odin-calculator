@@ -36,6 +36,7 @@ displayCalc.textContent = displayValue;
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
+    console.log('clicked: ' + clickedButton);
     processClicked(clickedButton);
     console.log('stashedNumber: ' + stashedNumber);
     console.log('operator: ' + operator);
@@ -50,9 +51,10 @@ function processClicked(value) {
     displayValue = '0';
     stashedNumber = 0;
     operator = '+';
+    result = '0';
     displayCalc.textContent = displayValue;
 
-  } else if (+value && displayValue.length < DISPLAYLIMIT) {
+  } else if ((+value || value === '0') && displayValue.length < DISPLAYLIMIT) {
 
     displayValue === '0' ?
       displayValue = value :
@@ -66,9 +68,14 @@ function processClicked(value) {
     
   } else if (value in FUNCTION_LIB) {
 
-    stashedNumber = +displayValue;
-    displayValue = '0';
-    operator = value;
+    if (+stashedNumber) {
+      operator = value;
+      setResult();
+    } else {
+      stashedNumber = +displayValue;
+      displayValue = '0';
+      operator = value;
+    }
 
   } else if (value === '=') {
     setResult();
@@ -84,9 +91,10 @@ function setResult() {
     displayCalc.textContent = 'UM... NUH UH'
   } else {
     result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
-    stashedNumber = '0';
+    stashedNumber = result;
     displayValue = '0';
     displayCalc.textContent = result;
+    result = '0';
   }
 }
 
