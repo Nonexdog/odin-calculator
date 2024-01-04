@@ -3,6 +3,7 @@ const DISPLAYLIMIT = 10;
 let stashedNumber = '0';
 let operator = '+';
 let result = '0';
+let resultLength;
 
 function add(a, b) {
   return a + b;
@@ -36,12 +37,7 @@ displayCalc.textContent = displayValue;
 buttonsCalc.forEach(button => {
   button.addEventListener('click', () => {
     let clickedButton = button.textContent;
-    console.log('clicked: ' + clickedButton);
     processClicked(clickedButton);
-    console.log('stashedNumber: ' + stashedNumber);
-    console.log('operator: ' + operator);
-    console.log('displayValue: ' + displayValue);
-    console.log('result: ' + result);
   })
 })
 
@@ -84,17 +80,44 @@ function processClicked(value) {
 
 function setResult() {
   result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
-  if (result === Infinity || result === -Infinity) {
+  limitDecimals();
+  resultLength = result.toString().length;
+  if (resultLength > DISPLAYLIMIT) {
     stashedNumber = '0';
     displayValue = '0';
     result = '0';
     operator = '+';
-    displayCalc.textContent = 'UM... NUH UH'
+    displayCalc.textContent = 'Too Big!!'
   } else {
-    stashedNumber = result;
-    displayValue = '0';
-    displayCalc.textContent = result;
-    result = '0';
+    if (result === Infinity || result === -Infinity) {
+      stashedNumber = '0';
+      displayValue = '0';
+      result = '0';
+      operator = '+';
+      displayCalc.textContent = 'UM... NUH UH'
+    } else {
+      stashedNumber = result;
+      displayValue = '0';
+      displayCalc.textContent = result;
+      result = '0';
+    }
   }
 }
+
+function limitDecimals() {
+  if (result.toString().includes('.')) {
+    let initialRound = +result.toFixed(3);
+    console.log(initialRound);
+    resultLength = initialRound.toString().length;
+    console.log(resultLength);
+    const resultSplit = initialRound.toString().split('.');
+    const resultIntegerLength = resultSplit[0].length;
+    if (resultLength > DISPLAYLIMIT && resultIntegerLength <= DISPLAYLIMIT - 2) {
+      result = initialRound.toFixed(resultLength - DISPLAYLIMIT);
+    } else {
+      result = initialRound;
+    }
+  }
+}
+
 
