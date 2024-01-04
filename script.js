@@ -49,7 +49,7 @@ function processClicked(value) {
   if (value === 'AC') {
 
     displayValue = '0';
-    stashedNumber = 0;
+    stashedNumber = '0';
     operator = '+';
     result = '0';
     displayCalc.textContent = displayValue;
