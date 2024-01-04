@@ -14,7 +14,7 @@ function multiply(a, b) {
   return b ? a * b : a;
 }
 function divide(a, b) {
-  return b ? a / b : a;
+  return a / b;
 }
 
 const FUNCTION_LIB = {
@@ -83,14 +83,14 @@ function processClicked(value) {
 }
 
 function setResult() {
-  if (operator === '/' && displayValue === '0') {
+  result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
+  if (result === Infinity || result === -Infinity) {
     stashedNumber = '0';
     displayValue = '0';
     result = '0';
     operator = '+';
     displayCalc.textContent = 'UM... NUH UH'
   } else {
-    result = operate(FUNCTION_LIB[operator], +stashedNumber, +displayValue);
     stashedNumber = result;
     displayValue = '0';
     displayCalc.textContent = result;
